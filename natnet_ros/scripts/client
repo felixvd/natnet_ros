@@ -26,16 +26,36 @@ from natnet_msgs.msg import MarkerList
 
 
 class RosLogger(natnet.Logger):
-    def debug(self, arg):
-        rospy.logdebug(arg)
-    def info(self, arg):
-        rospy.loginfo(arg)
-    def warning(self, arg):
-        rospy.logwarn(arg)
-    def error(self, arg):
-        rospy.logerr(arg)
-    def fatal(self, arg):
-        rospy.logfatal(arg)
+    def debug(self, arg, arg2=""):
+        if arg2:
+            logstring = arg.replace("%s", arg2)
+        else:
+            logstring = arg
+        rospy.logdebug(logstring)
+    def info(self, arg, arg2=""):
+        if arg2:
+            logstring = arg.replace("%s", arg2)
+        else:
+            logstring = arg
+        rospy.loginfo(logstring)
+    def warning(self, arg, arg2=""):
+        if arg2:
+            logstring = arg.replace("%s", arg2)
+        else:
+            logstring = arg
+        rospy.logwarn(logstring)
+    def error(self, arg, arg2=""):
+        if arg2:
+            logstring = arg.replace("%s", arg2)
+        else:
+            logstring = arg
+        rospy.logerr(arg)logstring
+    def fatal(self, arg, arg2=""):
+        if arg2:
+            logstring = arg.replace("%s", arg2)
+        else:
+            logstring = arg
+        rospy.logfatal(logstring)
 
 
 def validate_name(name):
