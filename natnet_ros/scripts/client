@@ -49,7 +49,7 @@ class RosLogger(natnet.Logger):
             logstring = arg.replace("%s", arg2)
         else:
             logstring = arg
-        rospy.logerr(arg)logstring
+        rospy.logerr(logstring)
     def fatal(self, arg, arg2=""):
         if arg2:
             logstring = arg.replace("%s", arg2)
